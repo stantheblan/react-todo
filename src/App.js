@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react'
+import { getTodos } from './services/todos-api.js'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom' 
+import Todos from './components/todos';
 
 function App() {
+  const [todosArray, setTodos] = useState([]);
+
+  useEffect(() => {
+    getTodos()
+    .then(res => setTodos(res.data))
+  }, [])
+  console.log(todosArray)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Todos/>}></Route>
+          {}
+        </Routes>
+      </Router>
     </div>
   );
 }
