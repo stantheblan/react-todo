@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom' 
 import Todos from './components/Todos';
-import Show from './components/Show';
+import { Show } from './components/Show';
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react'
 import { getTodos } from '../services/todos-api.js'
-import {Todo} from './Todo'
+import { Show } from './Show'
 
 function Todos() {
 
@@ -20,7 +20,7 @@ function Todos() {
         todosArray.map((e, i) => 
         {
             return (
-              <Todo key={i} description={e.description} id = {e._id} complete={e.complete}/>
+              <a href={`/${e._id}`} key={i}>{e.description}<br/></a>
             )
         })
       }
