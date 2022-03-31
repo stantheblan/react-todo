@@ -3,8 +3,9 @@ import React from 'react'
 export function Todo(task) {
   return (
     <div>
-    {task.description}<br/>
-    {task.completed}
+      <h1>Todo Item</h1>
+    <a href={`/${task.id}`}><h1>{task.description}</h1></a><br/>
+    {task.complete}
     </div>
   )
 }

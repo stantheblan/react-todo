@@ -20,7 +20,7 @@ function Todos() {
         todosArray.map((e, i) => 
         {
             return (
-              <Todo key={i} description={e.description} completed={e.completed}/>
+              <Todo key={i} description={e.description} id = {e._id} complete={e.complete}/>
             )
         })
       }
