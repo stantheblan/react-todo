@@ -11,8 +11,8 @@ function App() {
      
       <Router> 
         <nav>
-        <Link to='/'>Home</Link>        
-        <Link to='/new'>New</Link>
+        <Link to='/'>    ~Home    </Link>  
+        <Link to='/new'>  ~New  </Link>
         </nav>
         <Routes>
           <Route path='/' element={<Todos/>}></Route>
