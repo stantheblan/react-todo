@@ -15,13 +15,14 @@ export function Show() {
     deleteTodo(id)
     navigate("/")
   }
-  
+
   return (
     <div>
         <h1>{data.description}</h1><br/>
         {/* {console.log(data.complete)} */}
         {/* Completed<input type={'checkbox'} checked={data.complete}/> */}
         <button onClick={deleteTheTodo}>Delete</button>
+        <button onClick={()=>{navigate(`/${id}/edit`)}}>Edit</button>
 
     </div>
   )
