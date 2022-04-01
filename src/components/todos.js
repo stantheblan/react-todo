@@ -1,14 +1,16 @@
 import { React, useState, useEffect } from 'react'
 import { getTodos } from '../services/todos-api.js'
-import { Show } from './Show'
 
 function Todos() {
 
   const [todosArray, setTodos] = useState([]);
 
   useEffect(() => {
+    console.log("here")
     getTodos()
     .then(res => setTodos(res.data))
+    .then(console.log("here 2"))
+
   }, [])
 
   console.log(todosArray)

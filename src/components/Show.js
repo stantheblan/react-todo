@@ -1,23 +1,27 @@
 import { React, useState, useEffect } from 'react'
-import { getTodos } from '../services/todos-api'
-import { useNavigate } from 'react-router-dom'
+import { deleteTodo, getTodo } from '../services/todos-api'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export function Show() {
-    const [data, setData] = useState({})
+  const { id } = useParams()
+  const navigate = useNavigate();
+  const [data, setData] = useState({})
 
-    useEffect(() => {
-        getTodos()
-        .then(res => res.data)
-        .then(res => setData(res.find(e => e._id === window.location.pathname.slice(1))))
-      }, [])
-    const navigate = useNavigate();
+  useEffect(() => {
+      getTodo(id).then(res => setData(res.data))
+  }, [])
+
+  const deleteTheTodo = () => {
+    deleteTodo(id)
+    navigate("/")
+  }
+  
   return (
     <div>
-        {console.log()}
         <h1>{data.description}</h1><br/>
-        {data.complete}
-        Completed<input type={'checkbox'}/>
-        <button onClick={() => {navigate("/")}}>Back</button>
+        {/* {console.log(data.complete)} */}
+        {/* Completed<input type={'checkbox'} checked={data.complete}/> */}
+        <button onClick={deleteTheTodo}>Delete</button>
 
     </div>
   )
