@@ -3,20 +3,20 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { getTodo, editTodo } from '../services/todos-api'
 
 export function Edit() {
-    const { id } = useParams()
-    const navigate = useNavigate();
-    const [data, setData] = useState({})
-  
-    useEffect(() => {
-        getTodo(id).then(res => setData(res.data))
-    }, [])
-    
-    const updateTodo = (e) => {
-        e.preventDefault()
-        let obj = {description: e.target.description.value, complete:e.target.complete.checked}
-        editTodo(id, obj)
-        navigate('/')
-    }
+  const { id } = useParams()
+  const navigate = useNavigate();
+  const [data, setData] = useState({})
+
+  useEffect(() => {
+      getTodo(id).then(res => setData(res.data))
+  }, [])
+
+  const updateTodo = (e) => {
+      e.preventDefault()
+      let obj = {description: e.target.description.value, complete:e.target.complete.checked}
+      editTodo(id, obj)
+      navigate(`/${id}`)
+  }
   return (
     <div>
       <form onSubmit={updateTodo}>
