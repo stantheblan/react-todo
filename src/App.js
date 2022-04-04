@@ -1,18 +1,17 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom' 
-import Todos from './components/Todos';
+import { Todos } from './components/Todos';
 import { NewTodo } from './components/NewTodo';
 import { Show } from './components/Show';
 import { Edit } from './components/Edit';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-     
       <Router> 
         <nav>
-        <Link to='/'>    ~Home    </Link>  
-        <Link to='/new'>  ~New  </Link>
+          <Link to='/'>    ~Home    </Link>  
+          <Link to='/new'>  ~New  </Link>
         </nav>
         <Routes>
           <Route path='/' element={<Todos/>}></Route>
@@ -24,5 +23,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
