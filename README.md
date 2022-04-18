@@ -1,5 +1,5 @@
 # Backend for this frontend
-The backend is located [here]((https://github.com/stantheblan/express_api) 
+The backend is located [here](https://github.com/stantheblan/express_api) 
 
 # Getting Started with Create React App
 
