@@ -15,7 +15,8 @@ export function Todos() {
         todosArray.map((e, i) => 
         {
             return (
-              !e.complete ? <a href={`/${e._id}`} key={i}>{e.description}<br/></a> : null
+              !e.complete ? <a href={`/${e._id}`} key={i} style={{backgroundColor: '#61dafb'}}>{e.description}<br/></a> 
+              : <a href={`/${e._id}`} key={i} style={{textDecoration: 'line-through'}}>{e.description}<br/></a> 
             )
         })
       }
